@@ -1,107 +1,137 @@
-# On-Chain Lab Notebook
+# LabChain: On-Chain Lab Notebook
 
-A decentralized application for managing scientific research notebooks on the Sui blockchain. This project allows researchers to create, edit, and fork lab notebooks while maintaining an immutable version history of their research data.
+A decentralized application for managing scientific research notebooks on the Sui blockchain. LabChain enables researchers to create, version, and collaborate on lab notebooks while maintaining an immutable record of their research data.
 
-## Features
 
-- Create new lab notebooks with markdown content
-- Edit and version control research data
-- Fork existing notebooks for collaborative research
-- Immutable version history stored on Sui blockchain
-- Off-chain storage using Walrus for efficient data management
-- Wallet integration with Sui Wallet
+## 🔬 Key Features
 
-## Tech Stack
+- **Immutable Research Records**: Every change is recorded on the Sui blockchain, ensuring research integrity
+- **Version Control**: Full history of all modifications with the ability to view and restore previous versions
+- **Collaborative Research**: Fork notebooks to build upon existing research while maintaining attribution
+- **Markdown Support**: Write and format research notes using familiar markdown syntax
+- **Secure Authentication**: Integration with Sui Wallet for secure access and ownership
+- **Efficient Storage**: Hybrid storage solution using blockchain for versioning and off-chain storage for content
 
-- **Frontend**: React + TypeScript
-- **Blockchain**: Sui Move
-- **Storage**: Walrus HTTP PUT API
-- **Wallet**: @suiet/wallet-kit
-- **Blockchain SDK**: @mysten/sui.js
+## 🛠️ Technology Stack
 
-## Project Structure
+- **Frontend**: React 18 + TypeScript + Vite
+- **Styling**: Tailwind CSS for modern, responsive design
+- **Blockchain**: Sui Move smart contracts
+- **Authentication**: Sui Wallet (@suiet/wallet-kit)
+- **Storage**: Hybrid on-chain/off-chain architecture
+- **Version Control**: Custom diff implementation for efficient updates
+
+## 📋 Prerequisites
+
+- Node.js 16.x or later
+- Sui Wallet browser extension
+- Git (optional, for development)
+
+## 🚀 Getting Started
+
+1. **Clone and Install**
+   ```bash
+   git clone https://github.com/yourusername/labchain.git
+   cd labchain
+   npm install
+   ```
+
+2. **Configure Environment**
+   ```bash
+   # Create .env file
+   cp .env.example .env
+
+   # Add your configuration
+   VITE_SUI_RPC=https://fullnode.testnet.sui.io:443
+   VITE_PACKAGE_ID=<your-published-package-id>
+   ```
+
+3. **Start Development Server**
+   ```bash
+   npm run dev
+   ```
+
+## 📝 Usage Guide
+
+### Creating a Notebook
+1. Connect your Sui wallet using the "Connect Wallet" button
+2. Click "New Notebook" to create a research notebook
+3. Enter title, description, and initial content
+4. Submit to create your notebook on the blockchain
+
+### Managing Versions
+- Each save creates a new version on the blockchain
+- View complete version history in the notebook view
+- Compare changes between versions
+- Restore previous versions if needed
+
+### Collaboration
+- Fork existing notebooks to create your own copy
+- All version history is preserved in forks
+- Original attribution is maintained through blockchain records
+
+## 🔧 Development
+
+```bash
+# Start development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+
+# Run linter
+npm run lint
+```
+
+## 🏗️ Project Structure
 
 ```
 /packages
-  /lab_notebook          # Sui Move package
+  /lab_notebook          # Sui Move smart contracts
     /sources
-      lab_notebook.move  # Smart contract
+      lab_notebook.move  # Core contract logic
     Move.toml           # Move package manifest
-/src                    # Frontend React application
+/src
   /components          # React components
-  /hooks               # Custom React hooks
-  /utils               # Utility functions
-  App.tsx             # Main application component
+    /common           # Shared components
+    /notebooks        # Notebook-specific components
+  /hooks              # Custom React hooks
+  /utils              # Utility functions
+  /pages             # Page components
 ```
 
-## Prerequisites
-
-- Node.js 16+
-- Sui CLI
-- Sui Wallet Browser Extension
-
-## Setup
-
-1. Install dependencies:
-```bash
-npm install
-```
-
-2. Configure environment variables:
-```bash
-# Create .env file
-cp .env.example .env
-
-# Add your configuration
-VITE_SUI_RPC=https://fullnode.testnet.sui.io:443
-VITE_PACKAGE_ID=<your-published-package-id>
-```
-
-3. Start the development server:
-```bash
-npm run dev
-```
-
-## Smart Contract Deployment
-
-1. Build the Move package:
-```bash
-cd packages/lab_notebook
-sui move build
-```
-
-2. Deploy to Sui testnet:
-```bash
-sui client publish --gas-budget 10000000
-```
-
-3. Update the `VITE_PACKAGE_ID` in your `.env` file with the published package ID.
-
-## Usage
-
-1. Connect your Sui wallet using the "Connect Wallet" button
-2. Create a new notebook using the "New Notebook" button
-3. Edit your notebook content using markdown
-4. Save changes to create new versions
-5. Fork notebooks to create your own copy
-6. View version history and restore previous versions
-
-## Development
-
-- `npm run dev` - Start development server
-- `npm run build` - Build for production
-- `npm run preview` - Preview production build
-- `npm run lint` - Run ESLint
-- `npm run test` - Run tests
-
-## Contributing
+## 🤝 Contributing
 
 1. Fork the repository
-2. Create a feature branch
-3. Commit your changes
-4. Push to the branch
-5. Create a Pull Request
+2. Create a feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
-## License
+## 📜 License
 
-MIT License - see LICENSE file for details
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🔐 Security
+
+- All notebook operations require wallet authentication
+- Smart contract includes comprehensive access controls
+- Version history is immutable once recorded
+- Off-chain storage uses secure content addressing
+
+## 🌟 Acknowledgments
+
+- Built on Sui blockchain for scalable, secure smart contracts
+- Uses React and Vite for modern web development
+- Inspired by the need for transparent, verifiable research records
+
+## 📞 Support
+
+For support, please open an issue in the GitHub repository or contact the maintainers directly.
+
+---
+
+Built with ❤️ for the scientific community
